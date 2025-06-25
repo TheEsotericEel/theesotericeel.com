@@ -3,8 +3,6 @@ import { Analytics } from "@vercel/analytics/next";
 import {
   ClerkProvider,
   SignIn,
-  SignInButton,
-  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
