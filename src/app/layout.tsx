@@ -20,7 +20,8 @@ export default function RootLayout({
         <ClerkProvider>
           <SignedIn>
             <header className="flex justify-end items-center w-full p-4 gap-4">
-              <UserButton />
+             {/* <UserButton /> */}
+              <div>User Button Placeholder</div>
             </header>
             {children}
             <Analytics />
