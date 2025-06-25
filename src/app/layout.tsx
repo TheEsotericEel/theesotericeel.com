@@ -15,9 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <ClerkProvider>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <ClerkProvider>
           <SignedIn>
             <header className="flex justify-end items-center w-full p-4 gap-4">
               <UserButton />
@@ -30,8 +30,8 @@ export default function RootLayout({
               <SignIn path="/sign-in" routing="path" />
             </div>
           </SignedOut>
-        </body>
-      </html>
-    </ClerkProvider>
+        </ClerkProvider>
+      </body>
+    </html>
   );
 }
