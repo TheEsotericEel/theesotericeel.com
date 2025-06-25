@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/next";
-import {
-  ClerkProvider,
-  SignIn,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -24,7 +19,6 @@ export default function RootLayout({
       <html lang="en">
         <body>
           <SignedIn>
-            {/* Header always visible for signed-in users */}
             <header className="flex justify-end items-center w-full p-4 gap-4">
               <UserButton />
             </header>
@@ -32,7 +26,6 @@ export default function RootLayout({
             <Analytics />
           </SignedIn>
           <SignedOut>
-            {/* If not signed in, show the sign-in form fullscreen */}
             <div className="flex min-h-screen items-center justify-center">
               <SignIn path="/sign-in" routing="path" />
             </div>
