@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function EbayTitleOptimizer() {
   const [title, setTitle] = useState("");
@@ -7,6 +8,11 @@ export default function EbayTitleOptimizer() {
   const [logs, setLogs] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
+   useEffect(() => {
+    document.body.classList.add('ebay-gradient-bg');
+    return () => document.body.classList.remove('ebay-gradient-bg');
+  }, []);
+  
   async function handleOptimize() {
     setLoading(true);
     setOptimized("");
@@ -23,7 +29,7 @@ export default function EbayTitleOptimizer() {
   }
 
   return (
-    <main className="flex items-center justify-center min-h-[90vh] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800">
+    <main className="min-h-screen w-full flex items-center justify-center bg-gradient-to-b from-blue-100 via-blue-200 to-blue-400">
       <section className="w-full max-w-lg bg-white/90 rounded-2xl shadow-xl p-8 border border-slate-200">
         <h1 className="text-3xl font-bold mb-4 text-slate-800 text-center">
           eBay Title Optimizer
