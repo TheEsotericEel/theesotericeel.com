@@ -23,36 +23,47 @@ export default function EbayTitleOptimizer() {
   }
 
   return (
-    <div className="max-w-xl mx-auto mt-8 p-4 border rounded-xl">
-      <h1 className="text-2xl font-bold mb-4">eBay Title Optimizer</h1>
-      <textarea
-        className="w-full border p-2 rounded mb-2"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Paste your eBay title, keywords, or description here"
-        rows={3}
-      />
-      <div className="text-right text-xs mb-2 text-gray-500">
-        Input characters: {title.length}
-      </div>
-      <button
-        className="px-4 py-2 bg-blue-600 text-white rounded"
-        onClick={handleOptimize}
-        disabled={loading || !title.trim()}
-      >
-        {loading ? "Optimizing..." : "Optimize"}
-      </button>
-      {optimized && (
-        <div className="mt-4 p-2 rounded border"
-             style={{ background: "#171923", color: "#f7fafc" }}>
-          <h2 className="font-semibold mb-1">Optimized Title:</h2>
-          <div>{optimized}</div>
-          <div className="text-right text-xs mt-2 text-gray-400">
-            Output characters: {optimized.length}
-          </div>
-          <div className="mt-4">
-            <details>
-              <summary className="cursor-pointer text-xs text-blue-400">Show debug info</summary>
+    <main className="flex items-center justify-center min-h-[90vh] bg-gradient-to-b from-slate-950 via-slate-900 to-slate-800">
+      <section className="w-full max-w-lg bg-white/90 rounded-2xl shadow-xl p-8 border border-slate-200">
+        <h1 className="text-3xl font-bold mb-4 text-slate-800 text-center">
+          eBay Title Optimizer
+        </h1>
+        <textarea
+          className="w-full border border-slate-300 rounded-lg p-3 mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder="Paste your eBay title, keywords, or description here"
+          rows={3}
+        />
+        <div className="text-right text-xs mb-4 text-slate-500">
+          Input characters: {title.length}
+        </div>
+        <button
+          className={`w-full px-4 py-2 rounded-lg font-semibold transition ${
+            loading || !title.trim()
+              ? "bg-blue-300 text-white cursor-not-allowed"
+              : "bg-blue-600 hover:bg-blue-700 text-white"
+          }`}
+          onClick={handleOptimize}
+          disabled={loading || !title.trim()}
+        >
+          {loading ? (
+            <span className="animate-pulse">Optimizing...</span>
+          ) : (
+            "Optimize"
+          )}
+        </button>
+        {optimized && (
+          <div className="mt-8 bg-slate-900 text-slate-100 p-4 rounded-xl border border-slate-700 shadow">
+            <h2 className="font-semibold mb-2 text-lg">Optimized Title:</h2>
+            <div className="break-words">{optimized}</div>
+            <div className="text-right text-xs mt-2 text-slate-400">
+              Output characters: {optimized.length}
+            </div>
+            <details className="mt-4">
+              <summary className="cursor-pointer text-xs text-blue-400">
+                Show debug info
+              </summary>
               <div className="text-xs mt-2 font-mono whitespace-pre-wrap">
                 {logs.map((log, i) => (
                   <div key={i}>{log}</div>
@@ -60,8 +71,8 @@ export default function EbayTitleOptimizer() {
               </div>
             </details>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </section>
+    </main>
   );
 }
