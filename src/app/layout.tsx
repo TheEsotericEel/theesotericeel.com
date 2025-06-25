@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
-import { SignedIn, SignedOut, SignIn, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignIn, } from "@clerk/nextjs";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
