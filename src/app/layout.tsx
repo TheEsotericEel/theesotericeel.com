@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
+import { ClerkProvider } from "@clerk/nextjs";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -33,7 +36,6 @@ export default function RootLayout({
             </SignedIn>
           </header>
           {children}
-          import { Analytics } from "@vercel/analytics/next";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
